@@ -56,6 +56,17 @@ abstract class User implements UserInterface, \Serializable, PermissionStorageIn
     protected $isActive;
 
     /**
+     * @ORM\Column(name="is_web3", type="boolean")
+     * @JMS\Expose()
+     */
+    protected $isWeb3;
+
+    /**
+     * @ORM\Column(type="string", name="private_key", length=128)
+     */
+    protected $privateKey;
+
+    /**
      * @ORM\Column(type="datetime", name="create_at")
      * @JMS\Expose()
      */
@@ -112,6 +123,7 @@ abstract class User implements UserInterface, \Serializable, PermissionStorageIn
         $this->username = $id;
         $this->createAt = new \DateTime('now');
         $this->isActive = false;
+        $this->isWeb3 = false;
         $this->salt = base_convert(sha1(uniqid(mt_rand(), true)), 16, 36);
         $this->roles = new ArrayCollection();
     }
@@ -223,6 +235,38 @@ abstract class User implements UserInterface, \Serializable, PermissionStorageIn
     public function setIsActive($isActive)
     {
         $this->isActive = $isActive;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getIsWeb3()
+    {
+        return $this->isWeb3;
+    }
+
+    /**
+     * @param mixed $isActive
+     */
+    public function setIsWeb3($isWeb3)
+    {
+        $this->isWeb3 = $isWeb3;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPrivateKey()
+    {
+        return $this->privateKey;
+    }
+
+    /**
+     * @param mixed $privateKey
+     */
+    public function setPrivateKey($privateKey)
+    {
+        $this->privateKey = $privateKey;
     }
 
     /**

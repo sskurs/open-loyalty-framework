@@ -1,0 +1,14 @@
+services:
+  oloy.network.command_handler:
+    class: OpenLoyalty\Component\Network\Domain\Command\NetworkCommandHandler
+    arguments:
+      - '@oloy.network.repository'
+      - '@broadway.event_dispatcher'
+    lazy: true
+    tags:
+      - { name: broadway.command_handler }
+  oloy.network.repository:
+    class: OpenLoyalty\Component\Network\Infrastructure\Persistence\Doctrine\Repository\DoctrineNetworkRepository
+    factory: ['@doctrine.orm.entity_manager', getRepository]
+    arguments:
+      - 'OpenLoyalty\Component\Network\Domain\Network'

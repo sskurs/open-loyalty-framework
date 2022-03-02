@@ -26,6 +26,7 @@ use OpenLoyalty\Bundle\UserBundle\Security\Voter\SellerVoter;
 use OpenLoyalty\Bundle\UserBundle\Security\Voter\AclVoter;
 use OpenLoyalty\Bundle\UserBundle\Security\Voter\AdminVoter;
 use OpenLoyalty\Bundle\UserBundle\Security\Voter\CustomerVoter;
+use OpenLoyalty\Bundle\UserBundle\Security\Voter\VendorVoter;
 use OpenLoyalty\Bundle\UtilityBundle\Security\Voter\UtilityVoter;
 use Symfony\Component\Translation\TranslatorInterface;
 
@@ -169,6 +170,10 @@ class AclManager implements AclManagerInterface
             new AclAvailableObject(
                 AuditVoter::PERMISSION_RESOURCE,
                 $this->translator->trans('user.acl.resource.audit')
+            ),
+            new AclAvailableObject(
+                VendorVoter::PERMISSION_RESOURCE,
+                $this->translator->trans('user.acl.resource.vendor')
             ),
         ];
     }

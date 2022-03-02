@@ -1,0 +1,6 @@
+OpenLoyalty\Component\Network\Domain\NetworkId:
+  exlusion_policy: ALL
+  properties:
+    networkId:
+      expose: true
+      serialized_name: networkId

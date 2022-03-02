@@ -39,6 +39,7 @@ class AppKernel extends Kernel
             new OpenLoyalty\Bundle\TransactionBundle\OpenLoyaltyTransactionBundle(),
             new OpenLoyalty\Bundle\EarningRuleBundle\OpenLoyaltyEarningRuleBundle(),
             new OpenLoyalty\Bundle\PosBundle\OpenLoyaltyPosBundle(),
+            new OpenLoyalty\Bundle\NetworkBundle\OpenLoyaltyNetworkBundle(),
             new OpenLoyalty\Bundle\SegmentBundle\OpenLoyaltySegmentBundle(),
             new OpenLoyalty\Bundle\EmailBundle\OpenLoyaltyEmailBundle(),
             new OpenLoyalty\Bundle\ActivationCodeBundle\OpenLoyaltyActivationCodeBundle(),

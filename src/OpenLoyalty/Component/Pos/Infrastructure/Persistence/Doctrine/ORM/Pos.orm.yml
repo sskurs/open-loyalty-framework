@@ -27,3 +27,9 @@ OpenLoyalty\Component\Pos\Domain\Pos:
   embedded:
     location:
       class: OpenLoyalty\Component\Pos\Domain\Model\Location
+  oneToMany:
+    networks:
+      targetEntity: OpenLoyalty\Component\Network\Domain\Model\Network
+      mappedBy: network
+      cascade: ["all"]
+      orphanRemoval: true

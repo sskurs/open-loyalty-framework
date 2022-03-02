@@ -88,4 +88,16 @@ class SellerCommandHandler extends SimpleCommandHandler
         $seller->update($sellerData);
         $this->repository->save($seller);
     }
+
+    public function handleJoinNetwork(JoinNetwork $command)
+    {
+        $sellerData = $command->getSellerData();
+        if (isset($sellerData['networkId']) && !$sellerData['networkId'] instanceof NetworkId) {
+            $sellerData['networkId'] = new NetworkId($sellerData['networkId']);
+        }
+        /** @var Seller $seller */
+        $seller = $this->repository->load($command->getSellerId());
+        $seller->update($sellerData);
+        $this->repository->save($seller);
+    }
 }

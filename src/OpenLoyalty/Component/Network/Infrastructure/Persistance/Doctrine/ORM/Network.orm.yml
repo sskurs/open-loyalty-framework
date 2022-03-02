@@ -1,0 +1,19 @@
+OpenLoyalty\Component\Network\Domain\Network:
+  type: entity
+  repositoryClass: OpenLoyalty\Component\Network\Infrastructure\Persistence\Doctrine\Repository\DoctrineNetworkRepository
+  table: ol__network
+  id:
+    networkId:
+      type: network_id
+      column: network_id
+  fields:
+    name:
+      type: string
+    description:
+      type: text
+      nullable: true
+    identifier:
+      type: text
+  embedded:
+    location:
+      class: OpenLoyalty\Component\Network\Domain\Model\Location

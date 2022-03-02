@@ -1,0 +1,5 @@
+services:
+  oloy.network.voters.network:
+    class: OpenLoyalty\Bundle\NetworkBundle\Security\Voter\NetworkVoter
+    tags:
+      - { name: security.voter }

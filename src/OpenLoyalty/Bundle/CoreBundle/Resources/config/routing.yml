@@ -31,6 +31,10 @@ open_loyalty_pos:
     resource: "@OpenLoyaltyPosBundle/Resources/config/routing.yml"
     prefix:   /api
 
+open_loyalty_network:
+    resource: "@OpenLoyaltyNetworkBundle/Resources/config/routing.yml"
+    prefix:   /api
+
 open_loyalty_earning_rule:
     resource: "@OpenLoyaltyEarningRuleBundle/Resources/config/routing.yml"
     prefix:   /api

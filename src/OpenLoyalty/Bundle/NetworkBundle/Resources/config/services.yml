@@ -1,0 +1,27 @@
+services:
+  _defaults:
+    autowire: true
+
+  oloy.network.form_type.create:
+    class: OpenLoyalty\Bundle\NetworkBundle\Form\Type\CreateNetworkFormType
+    tags:
+      - { name: form.type }
+  oloy.network.form_type.edit:
+    class: OpenLoyalty\Bundle\NetworkBundle\Form\Type\EditNetworkFormType
+    tags:
+      - { name: form.type }
+  oloy.network.form_type.loction:
+    class: OpenLoyalty\Bundle\NetworkBundle\Form\Type\LocationFormType
+    tags:
+      - { name: form.type }
+  oloy.network.param_converter:
+    class: OpenLoyalty\Bundle\NetworkBundle\ParamConverter\NetworkParamConverter
+    arguments: ['@oloy.network.repository']
+    tags:
+      - { name: request.param_converter, priority: 2, converter: network_converter }
+  oloy.network.serialization_listener.network:
+    class: OpenLoyalty\Bundle\NetworkBundle\Event\Listener\NetworkSerializationListener
+    arguments:
+      $settingsManager: '@ol.settings.manager'
+    tags:
+      - { name: jms_serializer.event_subscriber }
